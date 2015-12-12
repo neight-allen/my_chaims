@@ -1,8 +1,8 @@
-class SongsController < ApplicationController
+class Api::V1::SongsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with Song.all
+    respond_with :api, :v1, Song.all
   end
 
   def show

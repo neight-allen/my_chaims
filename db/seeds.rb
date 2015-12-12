@@ -27,7 +27,7 @@ class Seed
     500.times do
       artist = Artist.all.sample
       album  = Album.all.sample
-      Song.create(title: "#{Faker::Hacker.ingverb} #{Faker::Name.first_name}", artist_id: artist.id, album_id: album.id )
+      Song.create(title: "#{Faker::Hacker.ingverb.capitalize} #{Faker::Team.creature}", artist_id: artist.id, album_id: album.id)
     end
   end
 end
