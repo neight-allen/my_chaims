@@ -19,7 +19,7 @@ class Api::V1::SongsController < ApplicationController
   end
 
   def destroy
-    respond_with Song.destroy(params[:id])
+    render json: Song.destroy(params[:id]), status: 200, location: nil
   end
 
   def update

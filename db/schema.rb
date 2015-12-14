@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151214053545) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "albums", force: :cascade do |t|
     t.string   "title"
     t.string   "year"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20151214053545) do
     t.integer  "artist_id"
   end
 
-  add_index "albums", ["artist_id"], name: "index_albums_on_artist_id"
+  add_index "albums", ["artist_id"], name: "index_albums_on_artist_id", using: :btree
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
@@ -38,7 +41,10 @@ ActiveRecord::Schema.define(version: 20151214053545) do
     t.string   "time"
   end
 
-  add_index "songs", ["album_id"], name: "index_songs_on_album_id"
-  add_index "songs", ["artist_id"], name: "index_songs_on_artist_id"
+  add_index "songs", ["album_id"], name: "index_songs_on_album_id", using: :btree
+  add_index "songs", ["artist_id"], name: "index_songs_on_artist_id", using: :btree
 
+  add_foreign_key "albums", "artists"
+  add_foreign_key "songs", "albums"
+  add_foreign_key "songs", "artists"
 end

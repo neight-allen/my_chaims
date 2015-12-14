@@ -19,7 +19,7 @@ class Api::V1::ArtistsController < ApplicationController
   end
 
   def destroy
-    respond_with Artist.destroy(params[:id])
+    render json: Artist.destroy(params[:id]), status: 200, location: nil
   end
 
   def update

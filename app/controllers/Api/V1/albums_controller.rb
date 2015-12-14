@@ -19,7 +19,7 @@ class Api::V1::AlbumsController < ApplicationController
   end
 
   def destroy
-    respond_with Album.destroy(params[:id])
+    render json: Album.destroy(params[:id]), status: 200, location: nil
   end
 
   def update
