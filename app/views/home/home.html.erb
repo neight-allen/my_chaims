@@ -2,4 +2,39 @@
 
 <p>
   My Chaims is our personal repository for all your songs and favorite artist.
+
+  My Chaims API is pretty strait forward and easy to get started with. Currently we're opperating on version 1, so you can find our api at the url 'api/v1'.
+
+  My Chaims tracks songs, artists, and albums. You can find these at the following addresses - Remember the base url for the api is 'api/v1':
+
+  <ol>
+    <li>Songs: </li>
+      <ul>
+        <li>All Songs: GET '/songs'</li>
+        <li>Song: GET '/songs/:id'</li>
+        <li>Update Song Info: PATCH '/songs/:id' with params: {title: "song title", time: "00:00", artist_id: "1", album_id: "1"}</li>
+        <li>Create New Song: POST '/songs/:id' with params: {title: "song title", time: "00:00", artist_id: "1", album_id: "1"}</li>
+        <li>Destroy Song: DELETE '/songs/:id' </li>
+      </ul>
+    <li>Artists: </li>
+      <ul>
+        <li>All Artists: GET '/artists'</li>
+        <li>Song: GET '/artists/:id'</li>
+        <li>Update Artist Info: PATCH '/artists/:id' with params: {name: "artist name"}</li>
+        <li>Create New Artist: POST '/artists/:id' with params: {name: "artist name"}</li>
+        <li>Destroy Artist: DELETE '/artists/:id' </li>
+      </ul>
+    <li>Albums: </li>
+      <ul>
+        <li>All Albums: GET '/albums'</li>
+        <li>Song: GET '/albums/:id'</li>
+        <li>Update Album Info: PATCH '/albums/:id' with params: {title: "Album title", year: "1999"}</li>
+        <li>Create New Album: POST '/albums/:id' with params: {title: "Album title", year: "1999"}</li>
+        <li>Destroy Album: DELETE '/albums/:id' </li>
+      </ul>
+      <li>Complete Information for a Song</li>
+        <ul>
+          <li>Song Info: GET '/complete_info/:song_id'</li>
+        </ul>
+  </ol>
 </p>
