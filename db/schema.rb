@@ -39,5 +39,4 @@ ActiveRecord::Schema.define(version: 20151212012314) do
 
   add_index "songs", ["album_id"], name: "index_songs_on_album_id"
   add_index "songs", ["artist_id"], name: "index_songs_on_artist_id"
-
 end

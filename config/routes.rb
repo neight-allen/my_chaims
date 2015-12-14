@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :artists
       resources :albums
       resources :songs
+      resources :complete_info, only: [:show]
     end
   end
 end

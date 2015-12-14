@@ -11,7 +11,6 @@ class Api::V1::SongsController < ApplicationController
 
   def create
     @song = Song.create(song_params)
-
     respond_with :api, :v1, @song
   end
 
@@ -20,12 +19,14 @@ class Api::V1::SongsController < ApplicationController
   end
 
   def update
-    respond_with Song.update(song_params)
+    @song = Song.find_by!(id: params[:id])
+    @song.update_attributes(song_params)
+    redirect
   end
 
   private
 
   def song_params
-    params.require(:song).permit(:id, :title, :artist_id)
+    params.permit(:id, :title, :artist_id, :album_id)
   end
 end
