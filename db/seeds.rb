@@ -24,10 +24,11 @@ class Seed
 
   def generate_songs
     puts "Start Songs"
+
     500.times do
       artist = Artist.all.sample
       album  = Album.all.sample
-      Song.create(title: "#{Faker::Hacker.ingverb.capitalize} #{Faker::Team.creature}", artist_id: artist.id, album_id: album.id)
+      Song.create(title: "#{Faker::Hacker.ingverb.capitalize} #{Faker::Team.creature}", artist_id: artist.id, album_id: album.id, time: "3:01" )
     end
   end
 end
