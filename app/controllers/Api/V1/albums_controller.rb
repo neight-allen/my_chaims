@@ -10,9 +10,12 @@ class Api::V1::AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.create(album_params)
-
-    respond_with :api, :v1, @album
+    @album = Album.new(album_params)
+    if @album.save
+      respond_with :api, :v1, @album
+    else
+      respond_with @album.errors.full_messages.join(", ")
+    end
   end
 
   def destroy
@@ -20,14 +23,18 @@ class Api::V1::AlbumsController < ApplicationController
   end
 
   def update
-    respond_with Album.update(album_params)
+    @album = Album.find_by!(id: params[:id])
+    if @album.save
+      render json: @album, status: 200, location: [:api, :v1, @album]
+    else
+      album_errors = @album.errors.full_messages.join(", ")
+      render json: album_errors, location: [:api, :v1, album_errors]
+    end
   end
 
   private
 
   def album_params
-    params.require(:album).permit(:id, :title, :year, :artist_id)
+    params.permit(:id, :title, :year, :artist_id)
   end
-
-
 end

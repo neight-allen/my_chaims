@@ -10,9 +10,12 @@ class Api::V1::ArtistsController < ApplicationController
   end
 
   def create
-    @artist = Artist.create(artist_params)
-
-    respond_with :api, :v1, @artist
+    @artist = Artist.new(artist_params)
+    if @artist.save
+      respond_with :api, :v1, @artist
+    else
+      respond_with @artist.errors.full_messages.join(", ")
+    end
   end
 
   def destroy
@@ -20,12 +23,18 @@ class Api::V1::ArtistsController < ApplicationController
   end
 
   def update
-    respond_with Artist.update(artist_params)
+    @artist = Artist.find_by!(id: params[:id])
+    if @artist.update_attributes(artist_params)
+      render json: @artist, status: 200, location: [:api, :v1, @artist]
+    else
+      artist_errors = @artist.errors.full_messages.join(", ")
+      render json: artist_errors, location: [:api, :v1, artist_errors]
+    end
   end
 
   private
 
   def artist_params
-    params.require(:artist).permit(:id, :name)
+    params.permit(:id, :name)
   end
 end

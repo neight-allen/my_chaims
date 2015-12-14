@@ -10,8 +10,12 @@ class Api::V1::SongsController < ApplicationController
   end
 
   def create
-    @song = Song.create(song_params)
-    respond_with :api, :v1, @song
+    @song = Song.new(song_params)
+    if @song.save
+      respond_with :api, :v1, @song
+    else
+      respond_with @song.errors.full_messages.join(", ")
+    end
   end
 
   def destroy
@@ -20,8 +24,12 @@ class Api::V1::SongsController < ApplicationController
 
   def update
     @song = Song.find_by!(id: params[:id])
-    @song.update_attributes(song_params)
-    redirect
+    if @song.update_attributes(song_params)
+      render json: @song, status: 200, location: [:api, :v1, @song]
+    else
+      song_errors = @song.errors.full_messages.join(", ")
+      render json: song_errors, location: [:api, :v1, song_errors]
+    end
   end
 
   private
