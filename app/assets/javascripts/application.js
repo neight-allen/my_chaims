@@ -18,19 +18,18 @@
 
 $(document).ready(function(){
   $("#front-sign").on("click", function(){
-    console.log("win")
+    $(".container").removeClass("hidden");
     $("#front-sign").animate({
       height: 1400,
       width: 1600,
-      opacity: 0.0
-    }, 2000, "linear", function(){
+      opacity: 0.1
+    }, 1000, "linear", function(){
       document.getElementById("front-sign").remove();
-      $(".container").removeClass("hidden");
-      $(".container").animate({
-        opacity: 1.0
-      }, 1500, "linear", function(){
+    })
+    $(".container").animate({
+      opacity: 1.0
+    }, 2000, "linear", function(){
 
-      })
     })
   })
 })

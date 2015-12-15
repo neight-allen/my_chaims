@@ -10,6 +10,7 @@
 .container {
   position: relative;
   opacity: 0.0;
+  z-index: 3;
 }
 
 li  {
@@ -22,6 +23,7 @@ li  {
 
 #front-sign {
   position: center;
+  // z-index: 0;
 }
 
 .hidden {

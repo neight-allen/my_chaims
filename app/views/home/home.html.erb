@@ -18,8 +18,8 @@
       <ul>
         <li>All Songs: GET 'api/v1/songs'</li>
         <li>Song: GET 'api/v1/songs/:id'</li>
-        <li>Update Song Info: PATCH 'api/v1/songs/:id' with params: {title: "song title", time: "00:00", artist_id: "1", album_id: "1"}</li>
-        <li>Create New Song: POST 'ap1/v1/songs/:id' with params: {title: "song title", time: "00:00", artist_id: "1", album_id: "1"}</li>
+        <li>Update Song Info: PATCH 'api/v1/songs/:id?title=song title&time=00:00&artist_id=1album_id=1' with params: {title: "song title", time: "00:00", artist_id: "1", album_id: "1"}</li>
+        <li>Create New Song: POST 'ap1/v1/songs/:id?title=song title&time=00:00&artist_id=1&album_id=1' with params: {title: "song title", time: "00:00", artist_id: "1", album_id: "1"}</li>
         <li>Destroy Song: DELETE 'api/v1/songs/:id' </li>
       </ul>
   <%= image_tag "lazabeams.jpg", id: "lazabeams" %>
@@ -27,15 +27,15 @@
       <ul>
         <li>All Artists: GET '/artists'</li>
         <li>Song: GET 'api/v1/artists/:id'</li>
-        <li>Update Artist Info: PATCH 'api/v1/artists/:id' with params: {name: "artist name"}</li>
-        <li>Create New Artist: POST 'api/v1/artists/:id' with params: {name: "artist name"}</li>
+        <li>Update Artist Info: PATCH 'api/v1/artists/:id?name=artist name' with params: {name: "artist name"}</li>
+        <li>Create New Artist: POST 'api/v1/artists/:id?name=artist name' with params: {name: "artist name"}</li>
         <li>Destroy Artist: DELETE 'api/v1/artists/:id' </li>
       </ul>
     <li>Albums: </li>
       <ul>
         <li>All Albums: GET 'api/v1/albums'</li>
         <li>Song: GET 'api/v1/albums/:id'</li>
-        <li>Update Album Info: PATCH 'api/v1/albums/:id' with params: {title: "Album title", year: "1999"}</li>
+        <li>Update Album Info: PATCH 'api/v1/albums/:id?title:Album title&year=1999' with params: {title: "Album title", year: "1999"}</li>
         <li>Create New Album: POST 'api/v1/albums/:id' with params: {title: "Album title", year: "1999"}</li>
         <li>Destroy Album: DELETE 'api/v1/albums/:id' </li>
       </ul>
