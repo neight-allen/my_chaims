@@ -14,3 +14,23 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function(){
+  $("#front-sign").on("click", function(){
+    console.log("win")
+    $("#front-sign").animate({
+      height: 1400,
+      width: 1600,
+      opacity: 0.0
+    }, 2000, "linear", function(){
+      document.getElementById("front-sign").remove();
+      $(".container").removeClass("hidden");
+      $(".container").animate({
+        opacity: 1.0
+      }, 1500, "linear", function(){
+
+      })
+    })
+  })
+})

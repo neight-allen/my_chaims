@@ -7,10 +7,23 @@
   background-color: #19FF56;
 }
 
+.container {
+  position: relative;
+  opacity: 0.0;
+}
+
 li  {
   font-size: 16px;
 }
 
 #lazabeams {
   float: right;
+}
+
+#front-sign {
+  position: center;
+}
+
+.hidden {
+  display: none;
 }
