@@ -18,10 +18,6 @@ class Api::V1::AlbumsController < ApplicationController
     end
   end
 
-  def destroy
-    render json: Album.destroy(params[:id]), status: 200, location: nil
-  end
-
   def update
     @album = Album.find_by!(id: params[:id])
     if @album.update_attributes(album_params)
