@@ -24,7 +24,7 @@ class Api::V1::AlbumsController < ApplicationController
 
   def update
     @album = Album.find_by!(id: params[:id])
-    if @album.save
+    if @album.update_attributes(album_params)
       render json: @album, status: 200, location: [:api, :v1, @album]
     else
       album_errors = @album.errors.full_messages.join(", ")
