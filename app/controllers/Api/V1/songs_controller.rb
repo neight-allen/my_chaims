@@ -1,4 +1,4 @@
-class Api::V1::SongsController < API::V1::APIController
+class Api::V1::SongsController < ApplicationController
   respond_to :json
 
   def index

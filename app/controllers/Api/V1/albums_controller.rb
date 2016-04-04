@@ -1,4 +1,4 @@
-class Api::V1::AlbumsController < API::V1::APIController
+class Api::V1::AlbumsController < ApplicationController
   respond_to :json
 
   def index
