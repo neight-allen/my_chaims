@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
 
   private
     def authenticate
-      render text: "NO" unless request.headers["Authorization"] == "Bearer 35148ad62db32ff044d6df2cd57"
+      render text: "{'error': 'Unauthorized. Expecting bearer token'}", status: 401 unless request.headers["Authorization"] == "Bearer 35148ad62db32ff044d6df2cd57"
     end
 end
