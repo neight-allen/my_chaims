@@ -35,6 +35,6 @@ class Api::V1::ArtistsController < ApplicationController
   private
 
   def artist_params
-    JSON.decode(request.body).permit(:id, :name)
+    params.permit(:id, :name)
   end
 end
